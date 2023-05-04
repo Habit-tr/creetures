@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "npx prettier --write .",
+    "start-prettier": "node index.js",
     "lint": "next lint"
   },
   "dependencies": {
@@ -29,5 +31,8 @@
     "react-router": "^6.11.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
