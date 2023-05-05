@@ -11,6 +11,7 @@ import { Database } from "./db_types";
 import "./styles/globals.css";
 import { createClient } from "@supabase/supabase-js";
 import LoginPage from ".";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -25,16 +26,17 @@ function MyApp() {
 
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
-     
-      <LoginPage></LoginPage>
-      <button
-        onClick={async () => {
-          await supabaseClient.auth.signOut();
-          router.push("/");
-        }}
-      >
-        Logout
-      </button>
+      <ChakraProvider>
+        <LoginPage></LoginPage>
+        <button
+          onClick={async () => {
+            await supabaseClient.auth.signOut();
+            router.push("/");
+          }}
+        >
+          Logout
+        </button>
+      </ChakraProvider>
     </SessionContextProvider>
   );
 }
