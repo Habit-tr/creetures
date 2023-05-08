@@ -4,12 +4,11 @@ import {
   useUser,
 } from "@supabase/auth-helpers-react";
 import { Auth } from "@supabase/auth-ui-react";
+import { ThemeSupa } from "@supabase/auth-ui-shared";
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Database } from "./db_types";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
-
 
 const LoginPage: NextPage = () => {
   const { isLoading, session, error } = useSessionContext();
@@ -40,6 +39,7 @@ const LoginPage: NextPage = () => {
           providers={["google"]}
           // scopes={{github: 'repo'}} // TODO: enable scopes in Auth component.
           socialLayout="horizontal"
+          redirectTo="/home"
         />
       </>
     );
