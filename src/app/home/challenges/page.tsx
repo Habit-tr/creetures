@@ -1,4 +1,9 @@
-function AllChallenges() {
+'use client'
+import React from 'react';
+import { supabase } from '../layout';
+import { Heading } from '@chakra-ui/react';
+
+export default async function AllChallenges() {
   // const [challenges, setChallenges] = useState<
   //   | {
   //       [x: string]: any;
@@ -15,10 +20,12 @@ function AllChallenges() {
   // useEffect = () => {
   //   fetchAllChallenges();
   // };
+  const { data } = await supabase.from('challenges').select();
 
   return (
     <div>
-      <h1>All Challenges</h1>
+      <Heading>All Challenges</Heading>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
       {/* {challenges &&
         challenges.map((challenge) => {
           <Text>challenge.name</Text>;
@@ -26,4 +33,3 @@ function AllChallenges() {
     </div>
   );
 }
-export default AllChallenges;

@@ -1,11 +1,12 @@
-// import { Button } from '@chakra-ui/react'
+'use client'
 import React from 'react'
+import { Button, Heading } from '@chakra-ui/react'
 
 export default function SingleChallenge() {
   return (
     <div>
-      <h1>Single Challenge</h1>
-      {/* <Button>Commit to this Challenge</Button> */}
+      <Heading>Single Challenge</Heading>
+      <Button>Commit to this Challenge</Button>
       {/* "Commit" button links to commit form modal */}
     </div>
   )
