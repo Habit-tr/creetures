@@ -1,17 +1,3 @@
-// import React from 'react'
-// import Link from 'next/link'
-// import './styles/globals.css'
-
-// export default function Navbar() {
-//   return (
-//     <nav>
-//       <Link href='/profile'><h1>Profile</h1></Link>
-//       <Link href='/challenges'><h1>Challenges</h1></Link>
-//       <Link href='/'><h1>Logout</h1></Link>
-//     </nav>
-//   )
-// }
-
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -24,6 +10,7 @@ import {
   Button,
   Collapse,
   Flex,
+  Heading,
   Icon,
   IconButton,
   Link,
@@ -52,6 +39,9 @@ export default function Navbar() {
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
+        <Link href="/home" textDecoration="none">
+          <Heading textDecoration="none">CREETURES</Heading>
+        </Link>
         <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
@@ -295,41 +285,49 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Home",
-    href: "/home",
-  },
-  {
-    label: "User Stats",
+    label: "Profile",
+    href: "/home/profile",
     children: [
       {
-        label: "Your Profile",
-        subLabel: "Settings",
+        label: "Settings",
+        subLabel: "update your settings",
         href: "/home/profile/settings",
       },
       {
-        label: "Rewards & Progress",
-        subLabel: "View Your Rewards",
+        label: "Rewards",
+        subLabel: "your progress and rewards",
         href: "/home/profile/rewards",
       },
     ],
   },
   {
     label: "Challenges",
+    href: "/home/challenges",
     children: [
       {
-        label: "Explore Challenges",
-        subLabel: "Find your dream Goal",
+        label: "Browse",
+        subLabel: "find your dream goal",
         href: "/home/challenges/browse",
       },
       {
         label: "Categories",
-        subLabel: "View All",
+        subLabel: "search by category",
         href: "/home/challenges/categories",
       },
       {
-        label: "Single Challenge",
-        subLabel: "View Challenge",
+        label: "Challenge",
+        subLabel: "single challenge view",
         href: "/home/challenges/challenge",
+      },
+      {
+        label: "Create",
+        subLabel: "create a new challenge",
+        href: "/home/challenges/create",
+      },
+      {
+        label: "Edit",
+        subLabel: "edit a commitment",
+        href: "/home/challenges/edit",
       },
     ],
   },

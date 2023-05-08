@@ -19,12 +19,15 @@ const LoginPage: NextPage = () => {
 
   useEffect(() => {
     async function loadData() {
-      const { data } = await supabaseClient.from("users").select("*").single();
+      const { data: any } = await supabaseClient
+        .from("users")
+        .select("*")
+        .single();
       setData(data);
     }
 
     if (user) loadData();
-  }, [user, supabaseClient]);
+  }, []);
 
   if (!session)
     return (
