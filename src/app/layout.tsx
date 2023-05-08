@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { cn } from '../../lib/utils'
 
 
+
 const inter = Inter({
   weight: ['100', '200', '300', '400'],
   subsets: ['latin'] })
@@ -24,9 +25,7 @@ export default function RootLayout({
     className={cn('bg-white text-slate-900 antialiased', inter.className)}>
 
     <body className='min-h-screen bg-slate-50 dark:bg-slate-900 antialiased'>
-        <main className='container'>
         {children}
-        </main>
       </body>
 
     </html>

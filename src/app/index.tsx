@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { Database } from "./db_types";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 
+
 const LoginPage: NextPage = () => {
   const { isLoading, session, error } = useSessionContext();
   const user = useUser();

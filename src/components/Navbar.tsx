@@ -38,7 +38,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 
-import SecondaryMenu from './styles/SecondaryMenu';
+import SecondaryMenu from '../app/styles/SecondaryMenu';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -70,7 +70,7 @@ export default function Navbar() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            // textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
           </Text>
