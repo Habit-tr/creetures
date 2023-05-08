@@ -1,13 +1,15 @@
 "use client";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/footer";
 import { ChakraProvider } from "@chakra-ui/react";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import { createClient } from "@supabase/supabase-js";
 import { Inter } from "next/font/google";
 import { useState } from "react";
-import { cn } from "../../lib/utils";
-import { Database } from "./db_types";
-import "./styles/globals.css";
+import { cn } from "../../../lib/utils";
+import { Database } from "../db_types";
+import "../styles/globals.css";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -36,7 +38,11 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
         <SessionContextProvider supabaseClient={supabaseClient}>
-          <ChakraProvider>{children}</ChakraProvider>
+          <ChakraProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </ChakraProvider>
         </SessionContextProvider>
       </body>
     </html>
