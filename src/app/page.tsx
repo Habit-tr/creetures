@@ -12,6 +12,9 @@ import "./styles/globals.css";
 import { createClient } from "@supabase/supabase-js";
 import LoginPage from ".";
 import { ChakraProvider } from "@chakra-ui/react";
+import Navbar from "./Navbar";
+import Footer from "./footer";
+import Signup from "@/signup";
 
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -28,15 +31,17 @@ function MyApp() {
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
       <ChakraProvider>
-        <LoginPage></LoginPage>
+      <Navbar />
+        {/* <LoginPage></LoginPage>
         <button
           onClick={async () => {
             await supabaseClient.auth.signOut();
             router.push("/");
           }}
         >
-          Logout
-        </button>
+        </button> */}
+        <Signup />
+        <Footer />
       </ChakraProvider>
     </SessionContextProvider>
   );

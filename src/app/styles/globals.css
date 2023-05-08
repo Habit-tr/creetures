@@ -1,7 +1,11 @@
+:root {
+  --primary-color: #e7f3f5;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
+  padding: 20;
+  margin: 20;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -13,4 +17,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.container {
+  padding: 40px;
 }
