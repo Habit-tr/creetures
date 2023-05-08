@@ -12,15 +12,17 @@ import "./styles/globals.css";
 import { createClient } from "@supabase/supabase-js";
 import LoginPage from ".";
 import { ChakraProvider } from "@chakra-ui/react";
-import Navbar from "./Navbar";
-import Footer from "./footer";
-import Signup from "@/signup";
+import Navbar from "../components/Navbar";
+import Footer from "../components/footer";
+import Signup from "@/app/signup";
 
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = createClient(supabaseUrl!, supabaseKey!);
+
+
 
 function MyApp() {
   const router = useRouter();
