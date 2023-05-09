@@ -5,7 +5,7 @@ import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import { createClient } from "@supabase/supabase-js";
 import { Inter } from "next/font/google";
 import { useState } from "react";
-import { cn } from "../../lib/utils";
+import { cn } from "../../../../lib/utils";
 import { Database } from "./db_types";
 import "./styles/globals.css";
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   // const router = useRouter();  //doesn't seem to be used...?
   const [supabaseClient] = useState(() =>
-    createBrowserSupabaseClient<Database>(),
+    createBrowserSupabaseClient<Database>()
   );
 
   return (
