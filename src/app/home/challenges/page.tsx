@@ -1,35 +1,30 @@
-'use client'
-import React from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../layout';
 import { Heading } from '@chakra-ui/react';
+import Link from 'next/link';
 
-export default async function AllChallenges() {
-  // const [challenges, setChallenges] = useState<
-  //   | {
-  //       [x: string]: any;
-  //     }[]
-  //   | null
-  // >(null);
-  // const fetchAllChallenges: () => Promise<void> = async () => {
-  //   let { data: challenges, error } = await supabase
-  //     .from("challenges")
-  //     .select("*");
-  //   setChallenges(challenges);
-  // };
+export default function AllChallenges() {
+  const [challenges, setChallenges] = useState<any[]>([]);
 
-  // useEffect = () => {
-  //   fetchAllChallenges();
-  // };
-  const { data } = await supabase.from('challenges').select();
+  useEffect(() => {
+    async function fetchChallenges() {
+      const { data } = await supabase.from('challenges').select();
+      setChallenges(data || []);
+    }
+    fetchChallenges();
+  }, []);
 
   return (
-    <div>
-      <Heading>All Challenges</Heading>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      {/* {challenges &&
-        challenges.map((challenge) => {
-          <Text>challenge.name</Text>;
-        })} */}
-    </div>
+    <>
+      <Heading as='h1'>All Challenges</Heading>
+      {challenges && challenges.length
+      ? challenges.map(challenge => (
+        <Link href={`/home/challenges/${challenge.id}`} key={challenge.id}>
+          <Heading as='h2' size='md'>{challenge.name}</Heading>
+        </Link>
+      ))
+      : null}
+    </>
   );
 }
